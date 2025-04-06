@@ -1197,11 +1197,11 @@ class GenomeCoverage:
       if not align.is_unmapped and num_maps <= self.maps_t and not align.is_duplicate:
         read_id = (align.query_name, align.is_read1)
 
-        if self.all_overlap:          
+        if self.all_overlap:
           chrom_pos = np.array(align.get_reference_positions())
 
         else:
-          # set alignment shift          
+          # set alignment shift
           align_shift_forward, align_shift_reverse = self.align_shifts(align)
 
           # determine chromosome length
@@ -1580,7 +1580,7 @@ class GenomeCoverage:
 
         # reverse
         rcov_out = pyBigWig.open('%s-.bw' % os.path.splitext(output_file)[0], 'w')
-        rcout_out.addHeader(headers)
+        rcov_out.addHeader(headers)
 
       else:
         cov_out = pyBigWig.open(output_file, 'w')
